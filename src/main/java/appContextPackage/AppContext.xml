@@ -14,6 +14,22 @@
 		<constructor-arg index="0" value="Chicken"/>
    </bean>
    
+   <bean id="animalWithListAndMap" class="staring.Animal">
+	   <property name="listOfAnimalName">
+		   <list>
+		   		<value>Lion</value>
+		   		<value>Cat</value>
+		   		<value>Tiger</value>
+		   </list>
+	   </property>
+   <property name="mapOfAnimalName">
+   		<map>
+   			<entry key="Lion" value="indomitable"/>
+   			<entry key="Phareon" value="D'egypte"/>
+   		</map>
+   </property>
+   </bean>
+   
    <bean id="vegetable" class="staring.Vegetable">
        <!-- collaborators and configuration for this bean go here -->
    </bean>

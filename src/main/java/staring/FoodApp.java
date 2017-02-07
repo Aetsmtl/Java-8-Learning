@@ -16,18 +16,21 @@ public class FoodApp {
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("appContextPackage/AppContext.xml");
 		
 		Vegetable v = appContext.getBean("vegetable", Vegetable.class);
-		//use property in XML file 
-		Vegetable myVegetable = appContext.getBean("vegWithName", Vegetable.class);
 		Animal a = (Animal) appContext.getBean("animal");
-		//use constructor-args in XML file
-		Animal myChicken = appContext.getBean("animalWithName", Animal.class);
-		
-		
-		
 		System.out.println(v.talkAboutMe());
 		System.out.println(a.talkAboutMe());
+		
+		//use constructor-args in XML file
+		Animal myChicken = appContext.getBean("animalWithName", Animal.class);
 		System.out.println(myChicken.talkAboutMe());
+		
+		//use property in XML file 
+		Vegetable myVegetable = appContext.getBean("vegWithName", Vegetable.class);
 		System.out.println(myVegetable.talkAboutMe());
+		
+		//use List and Map in XML file
+		Animal myOtherAnimal = appContext.getBean("animalWithListAndMap", Animal.class);
+		System.out.println(myOtherAnimal.talkAboutMe());
 		
 		//((FileSystemXmlApplicationContext)appContext).close();
 	}

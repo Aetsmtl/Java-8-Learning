@@ -1,6 +1,7 @@
 package staring;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class FoodApp {
@@ -11,7 +12,8 @@ public class FoodApp {
 		//Vegetable v = new Vegetable();
 		//Animal a = new Animal();
 		
-		ApplicationContext appContext = new FileSystemXmlApplicationContext("AppContext.xml");
+		//ApplicationContext appContext = new FileSystemXmlApplicationContext("AppContext.xml");
+		ApplicationContext appContext = new ClassPathXmlApplicationContext("appContextPackage/AppContext.xml");
 		
 		Vegetable v = appContext.getBean("vegetable", Vegetable.class);
 		Animal a = (Animal) appContext.getBean("animal");

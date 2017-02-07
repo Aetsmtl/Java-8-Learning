@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	default-autowire="byType">
 
-   <!-- A simple bean definition -->
-   <bean id="meat" class ="staring.Meat"/>
-   <bean id="desert" class ="staring.Desert"/>        
-   <bean id="fruit" class ="staring.Fruit"/>
-   
-   <bean id="animal" class="staring.Animal">
-       <!-- collaborators and configuration for this bean go here -->
-   </bean>
-   
-   <bean id="animalWithName" class="staring.Animal">
-		<constructor-arg index="0" value="Chicken"/>
-   </bean>
-   
-   <bean id="animalWithListAndMap" class="staring.Animal">
-	   <property name="listOfAnimalName">
-		   <list>
-		   		<value>Lion</value>
-		   		<value>Cat</value>
-		   		<value>Tiger</value>
-		   </list>
-	   </property>
-   <property name="mapOfAnimalName">
-   		<map>
-   			<entry key="Lion" value="indomitable"/>
-   			<entry key="Phareon" value="D'egypte"/>
-   		</map>
-   </property>
-   </bean>
-   
-   <bean id="vegetable" class="staring.Vegetable">
-       <!-- collaborators and configuration for this bean go here -->
-   </bean>
-   
-   <bean id="vegWithName" class="staring.Vegetable">
-       <property name="myName" value = "Brocolli"></property>
-   </bean>
+	<!-- A simple bean definition -->
+	<bean id="meat" class="staring.Meat" />
+	<bean id="desert" class="staring.Desert" />
+	<bean id="fruit" class="staring.Fruit" />
 
-   <bean id="mealWithAutowireByName" class ="staring.Meal" autowire="byName"/>
+	<bean id="animal" class="staring.Animal">
+		<!-- collaborators and configuration for this bean go here -->
+	</bean>
+
+	<bean id="animalWithName" class="staring.Animal" primary="true">
+		<constructor-arg index="0" value="Chicken" />
+	</bean>
+
+	<bean id="animalWithListAndMap" class="staring.Animal">
+		<property name="listOfAnimalName">
+			<list>
+				<value>Lion</value>
+				<value>Cat</value>
+				<value>Tiger</value>
+			</list>
+		</property>
+		<property name="mapOfAnimalName">
+			<map>
+				<entry key="Lion" value="indomitable" />
+				<entry key="Phareon" value="D'egypte" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="vegetable" class="staring.Vegetable">
+		<!-- collaborators and configuration for this bean go here -->
+	</bean>
+
+	<bean id="vegWithName" class="staring.Vegetable" primary="true">
+		<property name="myName" value="Brocolli"></property>
+	</bean>
+
+	<bean id="mealWithAutowireByName" class="staring.Meal"
+		autowire="byName" />
+	<bean id="mealWithAutowireByTypeWithoutSpec" class="staring.Meal" />
+	<!--  <bean id="mealWithAutowireByDefault" class ="staring.Meal" autowire="default"/>-->
 
 </beans>

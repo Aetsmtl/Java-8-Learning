@@ -32,8 +32,14 @@ public class FoodApp {
 		Animal myOtherAnimal = appContext.getBean("animalWithListAndMap", Animal.class);
 		System.out.println(myOtherAnimal.talkAboutMe());
 		
-		Meal mWithAutoWire = appContext.getBean("mealWithAutowireByName", Meal.class);
-		System.out.println("\n" + mWithAutoWire.wathsInThisMeal()); // but none none of Vegetable 
+		Meal mWithAutoWireByName = appContext.getBean("mealWithAutowireByName", Meal.class);
+		System.out.println("\n" + mWithAutoWireByName.wathsInThisMeal()); // but none none of Vegetable 
+		
+		Meal mealWithAutowireByTypeWithoutSpec = appContext.getBean("mealWithAutowireByTypeWithoutSpec", Meal.class);
+		System.out.println("\n" + mealWithAutowireByTypeWithoutSpec.wathsInThisMeal()); // but none none of Vegetable 
+		
+		/*Meal mWithAutoWireByDefault = appContext.getBean("mealWithAutowireByDefault", Meal.class);
+		System.out.println("\n" + mWithAutoWireByDefault.wathsInThisMeal()); // but none none of Vegetable*/
 
 		
 		//((FileSystemXmlApplicationContext)appContext).close();

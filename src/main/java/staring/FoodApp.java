@@ -2,7 +2,7 @@ package staring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
+//import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class FoodApp {
 
@@ -31,6 +31,10 @@ public class FoodApp {
 		//use List and Map in XML file
 		Animal myOtherAnimal = appContext.getBean("animalWithListAndMap", Animal.class);
 		System.out.println(myOtherAnimal.talkAboutMe());
+		
+		Meal mWithAutoWire = appContext.getBean("mealWithAutowireByName", Meal.class);
+		System.out.println("\n" + mWithAutoWire.wathsInThisMeal()); // but none none of Vegetable 
+
 		
 		//((FileSystemXmlApplicationContext)appContext).close();
 	}

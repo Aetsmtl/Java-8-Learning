@@ -3,9 +3,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
-	default-autowire="byType">
-
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+    http://www.springframework.org/schema/context
+    https://www.springframework.org/context/spring-context-3.0.xsd"
+    
+	xmlns:context="http://www.springframework.org/schema/context">
+	
+	<context:annotation-config/>
+		
 	<!-- A simple bean definition -->
 	<bean id="meat" class="staring.Meat" />
 	<bean id="desert" class="staring.Desert" />
@@ -44,8 +49,10 @@
 	</bean>
 
 	<bean id="mealWithAutowireByName" class="staring.Meal"
-		autowire="byName" />
+		 /> <!-- autowire="byName" -->
 	<bean id="mealWithAutowireByTypeWithoutSpec" class="staring.Meal" />
-	<!--  <bean id="mealWithAutowireByDefault" class ="staring.Meal" autowire="default"/>-->
+	<!-- <bean id="mealWithAutowireByDefault" class ="staring.Meal" autowire="default"/>-->
+	
+	<bean id="mealWithAnnotation" class="staring.Meal" />
 
 </beans>

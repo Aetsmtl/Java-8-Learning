@@ -1,12 +1,20 @@
 package staring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Meal {
 
+	
 	private String myName;
+	@Autowired
 	private Fruit fruit;
+	@Autowired
 	private Desert desert;
+	@Autowired
 	private Meat meat;
+	@Autowired
 	private Vegetable vege; // I have to put "vegetable" to autowire  by name
+	@Autowired
 	private Animal animal;
 	
 	public String getMyName() {

@@ -6,15 +6,15 @@ public class Meal {
 
 	
 	private String myName;
-	@Autowired
+	
 	private Fruit fruit;
-	@Autowired
+	
 	private Desert desert;
-	@Autowired
+	
 	private Meat meat;
-	@Autowired
+	
 	private Vegetable vege; // I have to put "vegetable" to autowire  by name
-	@Autowired
+	
 	private Animal animal;
 	
 	public String getMyName() {
@@ -70,6 +70,17 @@ public class Meal {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Autowired
+	public Meal(Fruit fruit, Desert desert, Meat meat, Vegetable vege, Animal animal) {
+		super();
+		
+		this.fruit = fruit;
+		this.desert = desert;
+		this.meat = meat;
+		this.vege = vege;
+		this.animal = animal;
+	}
+
 	public Meal(String name){
 		setMyName(name);
 	}

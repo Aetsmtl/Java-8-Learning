@@ -48,8 +48,8 @@
 		<property name="myName" value="Brocolli"></property>
 	</bean>
 
-	<bean id="mealWithAutowireByName" class="staring.Meal"
-		 /> <!-- autowire="byName" -->
+	<bean id="mealWithAutowireByName" class="staring.Meal"/> <!-- autowire="byName" -->
+	
 	<bean id="mealWithAutowireByTypeWithoutSpec" class="staring.Meal" />
 	<!-- <bean id="mealWithAutowireByDefault" class ="staring.Meal" autowire="default"/>-->
 	

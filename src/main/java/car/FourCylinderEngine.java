@@ -1,8 +1,6 @@
 package car;
 
-import org.springframework.stereotype.Component;
-
-@Component(value="fourCyl")
+//@Component(value="fourCyl")
 public class FourCylinderEngine implements Engine {
 
 	@Override

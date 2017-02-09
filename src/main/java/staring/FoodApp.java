@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import appContextPackage.AppConfiguration;
+import car.FamillyCar;
 import car.FourCylinderEngine;
 //import org.springframework.context.support.FileSystemXmlApplicationContext;
 import car.SixCylinderEngine;
@@ -16,10 +17,13 @@ public class FoodApp {
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfiguration.class);
 		
 		SixCylinderEngine sixCyl = appContext.getBean("sixCyl", SixCylinderEngine.class);
-		System.out.println(sixCyl.getEngineCylinderNumber());
+		// System.out.println(sixCyl.getEngineCylinderNumber());
 		FourCylinderEngine fourCyl = appContext.getBean("fourCyl", FourCylinderEngine.class);
-		System.out.println(fourCyl.getEngineCylinderNumber());
+		// System.out.println(fourCyl.getEngineCylinderNumber());
 		
+		FamillyCar familyCar = appContext.getBean("famCar", FamillyCar.class);
+		System.out.println(familyCar.witchTypeOfCar());
+
 		((AnnotationConfigApplicationContext)appContext).close();
 		
 	}

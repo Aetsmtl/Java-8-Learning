@@ -3,6 +3,7 @@ package appContextPackage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import car.FamillyCar;
 import car.FourCylinderEngine;
 import car.SixCylinderEngine;
 
@@ -17,6 +18,15 @@ public class AppConfiguration {
 	@Bean(name="fourCyl")
 	public FourCylinderEngine getFourCylinderEngine(){
 		return new FourCylinderEngine();
+	}
+	@Bean(name="famCar")
+	public FamillyCar getFamilyCar(){
+		
+		FamillyCar f = new FamillyCar();
+		
+		f.setSmallEngineCar(getFourCylinderEngine());
+		
+		return f;
 	}
 	
 }

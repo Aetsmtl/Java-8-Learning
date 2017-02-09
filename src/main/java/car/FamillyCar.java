@@ -35,6 +35,16 @@ public class FamillyCar {
 	private Engine smallEngineCar;
 	
 	
+	public Engine getSmallEngineCar() {
+		return smallEngineCar;
+	}
+
+
+	public void setSmallEngineCar(Engine smallEngineCar) {
+		this.smallEngineCar = smallEngineCar;
+	}
+
+
 	public String witchTypeOfCar(){
 		String speechMeal = " This car contains : " + "\n";
 		

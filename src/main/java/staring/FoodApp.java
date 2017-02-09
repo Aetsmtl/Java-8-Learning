@@ -24,8 +24,7 @@ public class FoodApp {
 		FamillyCar familyCar = appContext.getBean("famCar", FamillyCar.class);
 		System.out.println(familyCar.witchTypeOfCar());
 
-		((AnnotationConfigApplicationContext)appContext).close();
-		
+		((AnnotationConfigApplicationContext)appContext).close();	
 	}
 
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import annot.RandomDemoAnnotation;
 
 //@Component(value="famCar")
-@RandomDemoAnnotation
+//@RandomDemoAnnotation
 public class FamillyCar {
 
 	
@@ -30,17 +30,16 @@ public class FamillyCar {
 	//@Qualifier(value="bTire")
 	private Tire backRightTire;
 	
-	@Autowired
-	@Qualifier(value="sixCyl")
 	private Engine smallEngineCar;
-	
 	
 	public Engine getSmallEngineCar() {
 		return smallEngineCar;
 	}
 
-
+	@Autowired
+	@Qualifier(value="sixCyl")
 	public void setSmallEngineCar(Engine smallEngineCar) {
+		System.out.println(" Implecite call - I start to understand a bit the Spring Framework");
 		this.smallEngineCar = smallEngineCar;
 	}
 

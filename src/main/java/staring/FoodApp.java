@@ -17,7 +17,8 @@ public class FoodApp {
 		//ApplicationContext appContext = new FileSystemXmlApplicationContext("AppContext.xml");
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("appContextPackage/appContext.xml");
 		
-		FamillyCar famillyCar = appContext.getBean("famCar", FamillyCar.class);
+		//FamillyCar famillyCar = appContext.getBean("famCar", FamillyCar.class);
+		FamillyCar famillyCar = appContext.getBean(FamillyCar.class);
 		
 		System.out.println(famillyCar.witchTypeOfCar());
 		

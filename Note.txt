@@ -1,2 +1,5 @@
 Be aware that there are alternative annotations
 Resource from JSR and inject from Javax 
+if it is javax tou have to add dependency in your pom
+
+Same thing for Component - Named(have to bring javax jar) -

@@ -2,6 +2,8 @@ package staring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import car.FamillyCar;
 //import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class FoodApp {
@@ -15,6 +17,11 @@ public class FoodApp {
 		//ApplicationContext appContext = new FileSystemXmlApplicationContext("AppContext.xml");
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("appContextPackage/appContext.xml");
 		
+		FamillyCar famillyCar = appContext.getBean("famCar", FamillyCar.class);
+		
+		System.out.println(famillyCar.witchTypeOfCar());
+		
+	    /*	
 		Vegetable v = appContext.getBean("vegetable", Vegetable.class);
 		Animal a = (Animal) appContext.getBean("animal");
 		System.out.println(v.talkAboutMe());
@@ -44,7 +51,7 @@ public class FoodApp {
 
 		Meal mealWithAnnotation = appContext.getBean("mealWithAnnotation",Meal.class );
 		System.out.println("\n" + mealWithAnnotation.wathsInThisMeal()); 
-		
+		*/
 		//((FileSystemXmlApplicationContext)appContext).close();
 	}
 

@@ -54,5 +54,19 @@
 	<!-- <bean id="mealWithAutowireByDefault" class ="staring.Meal" autowire="default"/>-->
 	
 	<bean id="mealWithAnnotation" class="staring.Meal" />
-
+	
+	<bean id="bigtire" class="car.BigTire">
+		<qualifier value="bTire"/>
+	</bean>
+	<bean id="smalltire" class="car.SmallTire">
+		<qualifier value="sTire"/>
+	</bean>
+	<bean id="fourCylinderEngine" class="car.FourCylinderEngine">
+		<qualifier value="fCyl"/>
+	</bean>
+	<bean id="sixCylinderEngine" class="car.SixCylinderEngine" >
+		<qualifier value="sCyl"/>
+	</bean>
+	<bean id="famCar" class="car.FamillyCar" />
+	
 </beans>

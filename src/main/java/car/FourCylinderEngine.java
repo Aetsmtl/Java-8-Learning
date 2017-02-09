@@ -1,16 +1,20 @@
 package car;
 
+import org.springframework.stereotype.Component;
+
+@Component(value="fourCyl")
 public class FourCylinderEngine implements Engine {
 
 	@Override
-	public String getEngineType() {
+	public String getEngineCylinderNumber() {
 		// TODO Auto-generated method stub
-		return "This is a six inch cylinder engine ";	}
+		return "I am driving with 4 cylinder engine ";
+	}
 
 	@Override
 	public String drive() {
 		// TODO Auto-generated method stub
-		return null;
+		return "4";
 	}
 
 }

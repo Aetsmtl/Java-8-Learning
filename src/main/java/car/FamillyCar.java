@@ -3,26 +3,30 @@ package car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import org.springframework.stereotype.Component;
+
+@Component(value="famCar")
 public class FamillyCar {
+
 	
-	@Autowired
-	@Qualifier(value="sTire")
+	//@Autowired
+	//@Qualifier(value="sTire")
 	private Tire frontRightTire;
 	
-	@Autowired
-	@Qualifier(value="sTire")
+	//@Autowired
+	//@Qualifier(value="sTire")
 	private Tire frontLeftTire;
 	
-	@Autowired
-	@Qualifier(value="bTire")
+	//@Autowired
+	//@Qualifier(value="bTire")
 	private Tire backLeftTire;
 	
-	@Autowired
-	@Qualifier(value="bTire")
+	//@Autowired
+	//@Qualifier(value="bTire")
 	private Tire backRightTire;
 	
 	@Autowired
-	@Qualifier(value="sCyl")
+	@Qualifier(value="sixCyl")
 	private Engine smallEngineCar;
 	
 	
@@ -33,7 +37,7 @@ public class FamillyCar {
 		if (frontLeftTire != null ) speechMeal += " frontLeftTire " + frontLeftTire.getTireDiameter() + "\n";
 		if (backLeftTire != null ) speechMeal += " backLeftTire " + backLeftTire.getTireDiameter() + "\n";
 		if (backRightTire != null ) speechMeal += " backRightTire " + backRightTire.getTireDiameter() + "\n";
-		if (smallEngineCar != null ) speechMeal += " smallEngineCar " + smallEngineCar.getEngineType() + "\n";
+		if (smallEngineCar != null ) speechMeal += " smallEngineCar " + smallEngineCar.getEngineCylinderNumber() + smallEngineCar.drive() +"\n";
 		
 		return speechMeal;
 	}

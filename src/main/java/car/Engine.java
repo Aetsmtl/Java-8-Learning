@@ -2,7 +2,7 @@ package car;
 
 public interface Engine {
 
-	public String getEngineType();
+	public String getEngineCylinderNumber();
 	
 	public String drive();
 }

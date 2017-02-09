@@ -1,0 +1,2 @@
+Be aware that there are alternative annotations
+Resource from JSR and inject from Javax 

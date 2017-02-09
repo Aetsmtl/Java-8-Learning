@@ -12,24 +12,24 @@ import car.SixCylinderEngine;
 @ComponentScan("car")
 public class AppConfiguration {
 	
-	@Bean(name="sixCyl")
-	public SixCylinderEngine getSixCylinderEngine(){
-		return new SixCylinderEngine();
-	}
-	
-	@Bean(name="fourCyl")
-	public FourCylinderEngine getFourCylinderEngine(){
-		return new FourCylinderEngine();
-	}
-	
-	@Bean(name="famCar")
-	public FamillyCar getFamilyCar(){
-		
-		FamillyCar f = new FamillyCar();
-		
-		// f.setSmallEngineCar(getFourCylinderEngine());
-		
-		return f;
-	}
-	
+//	@Bean(name="sixCyl")
+//	public SixCylinderEngine getSixCylinderEngine(){
+//		return new SixCylinderEngine();
+//	}
+//	
+//	@Bean(name="fourCyl")
+//	public FourCylinderEngine getFourCylinderEngine(){
+//		return new FourCylinderEngine();
+//	}
+//	
+//	@Bean(name="famCar")
+//	public FamillyCar getFamilyCar(){
+//		
+//		FamillyCar f = new FamillyCar();
+//		
+//		// f.setSmallEngineCar(getFourCylinderEngine());
+//		
+//		return f;
+//	}
+//	
 }

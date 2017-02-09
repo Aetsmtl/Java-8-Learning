@@ -16,13 +16,15 @@ public class FoodApp {
 		
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfiguration.class);
 		
-		SixCylinderEngine sixCyl = appContext.getBean("sixCyl", SixCylinderEngine.class);
-		// System.out.println(sixCyl.getEngineCylinderNumber());
-		FourCylinderEngine fourCyl = appContext.getBean("fourCyl", FourCylinderEngine.class);
-		// System.out.println(fourCyl.getEngineCylinderNumber());
+		SixCylinderEngine sixCyl = appContext.getBean(SixCylinderEngine.class); //One way to do
+		System.out.println(sixCyl.getEngineCylinderNumber());
+		// FourCylinderEngine fourCyl = appContext.getBean("fourCyl", FourCylinderEngine.class);
+		FourCylinderEngine fourCyl = appContext.getBean("fourCyl",FourCylinderEngine.class); //Another way to do
+
+		System.out.println(fourCyl.getEngineCylinderNumber());
 		
-		FamillyCar familyCar = appContext.getBean("famCar", FamillyCar.class);
-		System.out.println(familyCar.witchTypeOfCar());
+		//FamillyCar familyCar = appContext.getBean("famCar", FamillyCar.class);
+		// System.out.println(familyCar.witchTypeOfCar());
 
 		((AnnotationConfigApplicationContext)appContext).close();	
 	}

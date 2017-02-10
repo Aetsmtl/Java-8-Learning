@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class springLearningController {
 
-	private String[] quote = {"To be or not be - Sheckpear",
+	private String[] quote = {"To be or not be - Shakespear",
 			 "Alors que la pluspart des gens rêvent au succes, les gagnants sont"
 			 + " bien reveillés et travaillent dur pour y arriver - Anonyme",
 			 "La vie appartient à ceux qui se lèvent tôt",

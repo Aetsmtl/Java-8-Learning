@@ -4,7 +4,10 @@ import java.util.Random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.aetsmtl.model.Account;
 
 @Controller
 public class springLearningController {
@@ -22,5 +25,12 @@ public class springLearningController {
 		String randomQuote = quote[rankQuote];
 		model.addAttribute("randomQuote", randomQuote);
 		return "quote" ;
+	}
+	
+	@RequestMapping(value="/getCreateAccount")
+	public String getCreateAccount(@ModelAttribute("aNewAccount") Account account){
+		
+		System.out.println(account.getFirstName() +"  -  "+ account.getLastName()+ "  -  " +account.getPhoneNumber() );
+		return ("createAccount");
 	}
 }

@@ -6,15 +6,34 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		.error{
+			color: red;
+			font-size: 15px;
+		}
+	</style>
 	<title>Create account</title>
 </head>
 	<body>
 	<h1>ENTER ACCOUNT DETAILS PLEASE</h1>
-		<form:form commandName="aNewAccount">
+		<form:form commandName="aNewAccount" action="getCreateAccount.html">
 			<table>
-				<tr><td>First Name <form:input path="firstName" type ="text" name="firstname"/></td></tr>
-				<tr><td>Last Name <form:input path="lastName" type ="text" name="lastname"/></td></tr>
-				<tr><td>Phone Number <form:input path="phoneNumber" type="text" name="phonenumber"/></td></tr>
+				<tr><td>First Name <form:input path="firstName" type ="text" name="firstname"/>
+				<form:errors path="firstName" cssClass="error" /></td></tr>
+				
+				
+				<tr><td>Last Name <form:input path="lastName" type ="text" name="lastname"/>
+				<form:errors path="lastName" cssClass="error" /></td></tr>
+				
+				
+				<tr><td>Phone Number <form:input path="phoneNumber" type="text" name="phonenumber"/>
+				<form:errors path="phoneNumber" cssClass="error" /></td></tr>
+				
+				
+				<tr><td>E-mail <form:input path="email" type="text" name="e-mail"/>
+				<form:errors path="email" cssClass="error" /></td></tr>
+				
+				
 				<tr><td><input type ="submit" value="Create ! "/></td></tr>
 			</table>
 		</form:form>

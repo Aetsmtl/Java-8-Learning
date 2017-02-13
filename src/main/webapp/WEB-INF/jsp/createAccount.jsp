@@ -16,7 +16,7 @@
 </head>
 	<body>
 	<h1>ENTER ACCOUNT DETAILS PLEASE</h1>
-		<form:form commandName="aNewAccount" action="getCreateAccount.html">
+		<form:form commandName="aNewAccount" method="post" action="getAccountCreated.html">
 			<table>
 				<tr><td>First Name <form:input path="firstName" type ="text" name="firstname"/>
 				<form:errors path="firstName" cssClass="error" /></td></tr>

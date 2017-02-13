@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aetsmtl.model.Account;
 
@@ -31,16 +32,27 @@ public class springLearningController {
 	}
 	
 	@RequestMapping(value="/getCreateAccount")
-	public String getCreateAccount(@Valid @ModelAttribute("aNewAccount") Account account, BindingResult result){
+	public String getCreateAccount(@ModelAttribute("aNewAccount") Account account){
 		
-		if (result.hasErrors()){
-			System.out.println("Form has errors");
-			return ("createAccount");
-		}
+//		if (result.hasErrors()){
+//			System.out.println("Form has errors");
+//			return ("createAccount");
+//		}
+//		System.out.println(account.getFirstName() 
+//				+ "  -  " + account.getLastName()
+//				+ "  -  " + account.getPhoneNumber()
+//				+ "  -  " + account.getEmail());
+		return ("createAccount");
+	}
+	
+	@RequestMapping(value="/getAccountCreated", method=RequestMethod.POST)
+	public String getAccountCreated(Account account){
+		
+		
 		System.out.println(account.getFirstName() 
 				+ "  -  " + account.getLastName()
 				+ "  -  " + account.getPhoneNumber()
 				+ "  -  " + account.getEmail());
-		return ("createAccount");
+		return ("accountCreated");
 	}
 }

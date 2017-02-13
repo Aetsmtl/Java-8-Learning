@@ -10,10 +10,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.aetsmtl.model.Account;
 
 @Controller
+@SessionAttributes("aNewAccount")
 public class springLearningController {
 
 	private String[] quote = {"To be or not be - Shakespear",
@@ -21,6 +24,16 @@ public class springLearningController {
 			 + " bien reveillés et travaillent dur pour y arriver - Anonyme",
 			 "La vie appartient à ceux qui se lèvent tôt",
 			 "Le pire n'est pas de tomber mais c'est de ne pas pouvoir se relever"};
+	
+	@ModelAttribute
+	public void addAccountToModel(Model model){
+		
+		System.out.print("Making sure that Account Object is on the Model");
+		if (!model.containsAttribute("aNewAccount")){
+			Account a = new Account();
+			model.addAttribute("aNewAccount", a);
+		}
+	}
 	
 	@RequestMapping(value = "/getQuote")
 	public String getRandomQote(Model model){
@@ -38,11 +51,36 @@ public class springLearningController {
 //			System.out.println("Form has errors");
 //			return ("createAccount");
 //		}
-//		System.out.println(account.getFirstName() 
-//				+ "  -  " + account.getLastName()
-//				+ "  -  " + account.getPhoneNumber()
-//				+ "  -  " + account.getEmail());
+		System.out.println(account.getFirstName() 
+				+ "  -  " + account.getLastName()
+				+ "  -  " + account.getPhoneNumber()
+				+ "  -  " + account.getEmail());
 		return ("createAccount");
+	}
+	
+	@RequestMapping(value="/doCreate")
+	public String doCreate(@ModelAttribute("aNewAccount") Account account){
+		
+//		if (result.hasErrors()){
+//			System.out.println("Form has errors");
+//			return ("createAccount");
+//		}
+		System.out.println("Do create : New Account Info \n"
+				+ account.getFirstName() 
+				+ "  -  " + account.getLastName()
+				+ "  -  " + account.getPhoneNumber()
+				+ "  -  " + account.getEmail());
+		System.out.println("Do create : Going OFF and creating an actual account \n");
+		
+		return ("redirect:accConfirmed.html");
+	}
+	
+	@RequestMapping(value="/accConfirmed")
+	public String accountConfirmed(@ModelAttribute("aNewAccount") Account account){
+		
+		System.out.println("Your compte is successful created M. " + account.getFirstName());
+		
+		return ("accountConfirmed");
 	}
 	
 	@RequestMapping(value="/getAccountCreated", method=RequestMethod.POST)

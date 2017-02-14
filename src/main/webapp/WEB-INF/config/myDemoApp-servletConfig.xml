@@ -27,6 +27,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 <!-- 	</bean>	 -->
 	
 	<context:property-placeholder location="/java/com/aetsmtl/assets/dbInfo.properties"/>
+	<context:component-scan base-package="com.aetsmtl.model"></context:component-scan>
 	
 	<bean id="myBasicDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${dbDriver}"/> 

@@ -18,12 +18,19 @@ public class App {
 		FoodGroupDAO fgDAO = appContext.getBean("foodGroupDAO", FoodGroupDAO.class);
 		
 		List<FoodGroup> myListOfFoodGroup = fgDAO.getFoodGroups();
-		
 		System.out.println(myListOfFoodGroup.stream().count());
 		
 		for (FoodGroup fg : myListOfFoodGroup){
 			System.out.println(fg.talkAboutMe());
 		}
+		
+		FoodGroup ndolé = fgDAO.getFoodGroupsId(3);
+		System.out.println(ndolé.talkAboutMe());
+		
+		FoodGroup banana = fgDAO.getFoodGroupsId(0);
+		System.out.println(banana.talkAboutMe());
+		
+		
 	}
 
 }

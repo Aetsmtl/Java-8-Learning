@@ -12,8 +12,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component(value="foodGroupDAO")
+@Repository("foodGroupDAO")
 public class FoodGroupDAO {
 
 	private NamedParameterJdbcTemplate myJdbcTemplate ;
@@ -46,4 +47,25 @@ public class FoodGroupDAO {
 			
 		});
 	}
+
+	public FoodGroup getFoodGroupsId(int id){
+		
+		MapSqlParameterSource myMap = new MapSqlParameterSource();
+		myMap.addValue("id", id);
+		
+		return myJdbcTemplate.queryForObject("select * from foodgroups where idfoodsgroups=:id", myMap , new RowMapper<FoodGroup>(){
+
+			public FoodGroup mapRow(ResultSet rs, int RecNum) 
+					throws SQLException {
+				
+				FoodGroup fg = new FoodGroup();
+				fg.setIdfoodsgroup(rs.getInt("idfoodsgroups"));
+				fg.setName(rs.getString("name"));
+				fg.setDescription(rs.getString("description"));
+				return fg;
+			}
+			
+		});
+	}
+	
 }

@@ -9,24 +9,30 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component(value="foodGroupDAO")
 public class FoodGroupDAO {
 
-	private JdbcTemplate myJdbcTemplate ;
+	private NamedParameterJdbcTemplate myJdbcTemplate ;
 	
-	public JdbcTemplate getMyJdbcTemplate() {
+	public NamedParameterJdbcTemplate getMyJdbcTemplate() {
 		return myJdbcTemplate;
 	}
 
 	@Autowired
 	public void setMyJdbcTemplate(DataSource ds) {
-		this.myJdbcTemplate = new JdbcTemplate(ds);
+		this.myJdbcTemplate = new NamedParameterJdbcTemplate(ds);
 	}
 
 	public List<FoodGroup> getFoodGroups(){
-		return myJdbcTemplate.query("select * from foodgroups where name='Apple'", new RowMapper<FoodGroup>(){
+		
+		MapSqlParameterSource myMap = new MapSqlParameterSource();
+		myMap.addValue("groupName", "Ndolé");
+		
+		return myJdbcTemplate.query("select * from foodgroups where name=:groupName", myMap , new RowMapper<FoodGroup>(){
 
 			public FoodGroup mapRow(ResultSet rs, int RecNum) 
 					throws SQLException {

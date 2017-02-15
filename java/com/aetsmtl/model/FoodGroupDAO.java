@@ -26,7 +26,7 @@ public class FoodGroupDAO {
 	}
 
 	public List<FoodGroup> getFoodGroups(){
-		return myJdbcTemplate.query("select * from foodgroups", new RowMapper<FoodGroup>(){
+		return myJdbcTemplate.query("select * from foodgroups where name='Apple'", new RowMapper<FoodGroup>(){
 
 			public FoodGroup mapRow(ResultSet rs, int RecNum) 
 					throws SQLException {
